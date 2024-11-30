@@ -1,56 +1,75 @@
-/// Function to fetch and parse the CSV from GitHub
+// Global variable to store the fetched university data
+let allUniversities = [];
+
+// Function to fetch universities from CSV URL
 async function fetchUniversities() {
-  const url = "https://raw.githubusercontent.com/endSly/world-universities-csv/master/world-universities.csv"; // Raw CSV file URL
+    const url = "https://raw.githubusercontent.com/endSly/world-universities-csv/master/world-universities.csv";
+    try {
+        const response = await fetch(url);
+        const csvText = await response.text();
+        const universities = parseCSV(csvText);
+        allUniversities = universities; // Store the universities globally
 
-  try {
-    // Fetch the CSV content
-    const response = await fetch(url);
-    const csvText = await response.text();
+        displayUniversities(universities); // Initial display
+    } catch (error) {
+        console.error('Error fetching universities:', error);
+    }
+}
 
-    // Split the CSV text into lines
-    const lines = csvText.split('\n');
-    
-    // Remove the header line (optional)
-    lines.shift(); // Remove the first line if it's the header
+// Function to parse the CSV data into an array of objects
+function parseCSV(csvText) {
+    const rows = csvText.split('\n').slice(1); // Skip header row
+    return rows.map(row => {
+        const [countryCode, universityName, website] = row.split(',');
+        return { countryCode, universityName, website };
+    }).filter(university => university.countryCode && university.universityName);
+}
 
+// Function to display universities on the page
+function displayUniversities(universities) {
     const universityList = document.getElementById('universityList');
-    
-    // Process each line (university data)
-    lines.forEach((line, index) => {
-      const universityData = line.split(',');
+    universityList.innerHTML = ''; // Clear existing list
 
-      // Ensure the line has all the expected fields (Country code, University name, Website)
-      if (universityData.length === 3) {
-        const country = universityData[0];
-        const name = universityData[1];
-        const website = universityData[2];
-        
-        // Create a card for each university
+    universities.forEach(university => {
         const universityCard = document.createElement('div');
         universityCard.classList.add('col-md-4');
         universityCard.innerHTML = `
-          <div class="card mb-3">
-            <div class="card-body">
-              <h5 class="card-title">${index + 1}. ${name}</h5>
-              <p class="card-text">Country: ${country}</p>
-              <p class="card-text">Website: <a href="${website}" target="_blank">${website}</a></p>
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">${university.universityName}</h5>
+                    <p class="card-text">Country Code: ${university.countryCode}</p>
+                    <a href="${university.website}" class="btn btn-primary" target="_blank">Visit Website</a>
+                </div>
             </div>
-          </div>
         `;
         universityList.appendChild(universityCard);
-      }
+    });
+}
+
+// Function to filter universities based on search input
+function filterUniversities() {
+    const countrySearch = document.getElementById('countrySearch').value.toLowerCase();
+    const universitySearch = document.getElementById('universitySearch').value.toLowerCase();
+
+    const filteredUniversities = allUniversities.filter(university => {
+        const countryMatch = university.countryCode.toLowerCase().includes(countrySearch);
+        const universityMatch = university.universityName.toLowerCase().includes(universitySearch);
+        return countryMatch && universityMatch;
     });
 
-  } catch (error) {
-    console.error('Error fetching CSV:', error);
-  }
+    displayUniversities(filteredUniversities); // Display filtered results
 }
+
+// Event Listeners for search input fields
+document.getElementById('countrySearch').addEventListener('input', filterUniversities);
+document.getElementById('universitySearch').addEventListener('input', filterUniversities);
 
 // Event Listener for Document Load
 document.addEventListener('DOMContentLoaded', () => {
-  if (document.getElementById('universityList')) {
-    fetchUniversities();
-  }
+    // Fetch universities when the universities page is loaded
+    if (document.getElementById('universityList')) {
+        fetchUniversities();
+    }
 });
 
 
