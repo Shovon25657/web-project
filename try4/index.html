@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University Search Platform</title>
+    <link rel="stylesheet" href="styles.css">
+     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <nav>
+            <div class="logo">UniPass</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#top-universities">Top Universities</a></li>
+                <li><a href="#search">Search</a></li>
+                <li><a href="#about-us">About Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Home Section -->
+    <section id="home">
+        <div class="home-content">
+            <h1>Welcome to UniPass</h1>
+            <p>Your gateway to discovering the best universities worldwide.</p>
+            <button class="btn">Get Started</button>
+        </div>
+    </section>
+
+    <!-- Top Universities Section -->
+    <section id="top-universities">
+        <h2>Top Universities</h2>
+        <div class="university-list">
+            <p>Loading the best universities from trusted sources...</p>
+        </div>
+    </section>
+
+    <!-- Search Section -->
+    <section id="search">
+      <h2>Search for Universities</h2>
+      <form id="search-form">
+          <label for="university-type">Choose University Type:</label>
+          <select id="university-type" name="university-type">
+              <option value="">Select</option>
+              <option value="local">Local</option>
+              <option value="international">International</option>
+          </select>
+  
+          <!-- Filters for Local Universities -->
+          <div id="local-filters" style="display: none;">
+              <label for="location">Preferred Location:</label>
+              <input type="text" id="location" name="location" placeholder="Enter city or region">
+  
+              <label for="cgpa">GPA/CGPA:</label>
+              <input type="number" id="cgpa" name="cgpa" placeholder="Enter your GPA/CGPA" step="0.01">
+  
+              <label for="university-type-local">Type of University:</label>
+              <select id="university-type-local" name="university-type-local">
+                  <option value="">Select</option>
+                  <option value="private">Private</option>
+                  <option value="public">Public</option>
+              </select>
+  
+              <label for="program-type-local">Program Type:</label>
+              <select id="program-type-local" name="program-type-local">
+                  <option value="">Select</option>
+                  <option value="bachelors">Bachelors</option>
+                  <option value="masters">Masters</option>
+              </select>
+  
+              <label for="start-year-local">Expected Year to Start Studies:</label>
+              <input type="number" id="start-year-local" name="start-year-local" placeholder="Enter year">
+  
+              <label for="budget-local">Tuition Budget Range:</label>
+              <input type="text" id="budget-local" name="budget-local" placeholder="Enter budget range">
+  
+              <label for="language-local">Preferred Teaching Language:</label>
+              <input type="text" id="language-local" name="language-local" placeholder="Enter language">
+  
+              <label for="evening-classes">Availability of Evening or Weekend Classes:</label>
+              <select id="evening-classes" name="evening-classes">
+                  <option value="">Select</option>
+                  <option value="yes">Yes</option>
+                  <option value="no">No</option>
+              </select>
+          </div>
+
+          <div id="search-results"></div>
+
+          <!-- Map container -->
+          <div id="map-container" style="display: none;">
+              <h3>University Location</h3>
+              <div id="map" style="height: 500px; width: 100%;"></div>
+          </div>
+
+
+
+
+          <!-- Filters for International Universities -->
+          <div id="international-filters" style="display: none;">
+              <label for="country">Preferred Country:</label>
+              <input type="text" id="country" name="country" placeholder="Enter country">
+  
+              <label for="program-type-international">Program Type:</label>
+              <select id="program-type-international" name="program-type-international">
+                  <option value="">Select</option>
+                  <option value="bachelors">Bachelors</option>
+                  <option value="masters">Masters</option>
+              </select>
+  
+              <label for="course-name">Desired Course Name:</label>
+              <input type="text" id="course-name" name="course-name" placeholder="Enter course name">
+  
+              <label for="cgpa-international">GPA/CGPA:</label>
+              <input type="number" id="cgpa-international" name="cgpa-international" placeholder="Enter your GPA/CGPA" step="0.01">
+  
+              <label for="language-scores">Language Proficiency Scores:</label>
+              <input type="text" id="language-scores" name="language-scores" placeholder="Enter IELTS/TOEFL/GRE scores">
+  
+              <label for="budget-international">Budget Preferences:</label>
+              <input type="text" id="budget-international" name="budget-international" placeholder="Enter budget preferences">
+  
+              <label for="scholarship-eligibility">Scholarship Eligibility:</label>
+              <select id="scholarship-eligibility" name="scholarship-eligibility">
+                  <option value="">Select</option>
+                  <option value="yes">Yes</option>
+                  <option value="no">No</option>
+              </select>
+  
+              <label for="start-year-international">Expected Year to Start Studies:</label>
+              <input type="number" id="start-year-international" name="start-year-international" placeholder="Enter year">
+  
+              <label for="language-international">Preferred Teaching Language:</label>
+              <input type="text" id="language-international" name="language-international" placeholder="Enter language">
+          </div>
+  
+          <button class="btn" type="submit">Search</button>
+      </form>
+  
+      <div id="search-results">
+          <!-- Dynamic search results will be displayed here -->
+      </div>
+  </section>
+
+<!-- map container -->
+<div id="map" style="height: 500px; width: 100%;"></div>
+
+  
+    <!-- About Us Section -->
+    <section id="about-us">
+        <h2>About Us</h2>
+        <p>UniPass helps students find and connect with universities worldwide, providing essential information and guidance at every step.</p>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 UniPass. All Rights Reserved.</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>

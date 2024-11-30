@@ -1,0 +1,224 @@
+/* General Styles */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f9f9f9;
+}
+
+a {
+  text-decoration: none;
+  color: #007bff;
+}
+
+a:hover {
+  color: #0056b3;
+}
+
+/* Header Styles */
+header {
+  background-color: #007bff;
+  color: #fff;
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+header .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+header .nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+header .nav-links li {
+  display: inline;
+}
+
+header .nav-links a {
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+}
+
+header .nav-links a:hover {
+  background-color: #0056b3;
+}
+
+/* Home Section */
+#home {
+  background: linear-gradient(to right, #007bff, #0056b3);
+  color: #fff;
+  text-align: center;
+  padding: 4rem 1rem;
+}
+
+#home .home-content h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+#home .btn {
+  background-color: #fff;
+  color: #007bff;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#home .btn:hover {
+  background-color: #f1f1f1;
+}
+
+/* Top Universities Section */
+#top-universities {
+  padding: 2rem 1rem;
+  background-color: #f1f1f1;
+  text-align: center;
+}
+
+#top-universities h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.university-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.university-item {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 1rem;
+  width: calc(33.333% - 2rem);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.university-item h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.university-item p {
+  color: #666;
+}
+
+.university-item a {
+  color: #007bff;
+  word-wrap: break-word;
+}
+
+.university-item a:hover {
+  color: #0056b3;
+}
+
+/* Search Section */
+#search {
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+#search h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+#search form {
+  max-width: 800px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#search label {
+  display: block;
+  margin: 0.5rem 0;
+  text-align: left;
+}
+
+#search input,
+#search select {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+#search .btn {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#search .btn:hover {
+  background-color: #0056b3;
+}
+
+#search-results {
+  margin-top: 20px;
+  padding: 0 20px;
+}
+
+
+/* About Us Section */
+#about-us {
+  padding: 2rem 1rem;
+  background: #fff;
+  text-align: center;
+}
+
+#about-us h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+#about-us p {
+  max-width: 800px;
+  margin: 0 auto;
+  color: #666;
+}
+
+/* Footer Styles */
+footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 1rem 0;
+  margin-top: 2rem;
+}
+
+footer p {
+  margin: 0;
+}
