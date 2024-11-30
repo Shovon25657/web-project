@@ -1,0 +1,67 @@
+:root {
+  --primary-color: #3498db;
+  --secondary-color: #2ecc71;
+  --dark-color: #2c3e50;
+  --light-color: #ecf0f1;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: var(--light-color);
+  padding-top: 70px;
+}
+
+.navbar {
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+section {
+  background-color: white;
+  padding: 50px 0;
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
+
+.card {
+  transition: all 0.3s ease;
+  margin-bottom: 20px;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+#home {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: white;
+}
+
+#search .card {
+  height: 100%;
+}
+
+#connect .card i {
+  color: var(--primary-color);
+  margin-bottom: 15px;
+}
+
+footer {
+  background-color: var(--dark-color) !important;
+}
+
+footer a {
+  color: var(--light-color);
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: white;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  body {
+      padding-top: 56px;
+  }
+}
