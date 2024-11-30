@@ -1,0 +1,126 @@
+:root {
+  --primary-color: #3498db;
+  --secondary-color: #2ecc71;
+  --dark-color: #2c3e50;
+  --light-color: #ecf0f1;
+}
+
+body {
+  background-image: linear-gradient(to bottom, #3498db, #2ecc71);
+  height: 100vh;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  padding-top: 70px;
+}
+
+.navbar {
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+section {
+  background-color: white;
+  padding: 50px 0;
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
+
+
+.card {
+  transition: all 0.3s ease;
+  margin-bottom: 20px;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+#universityList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.university-card {
+  margin: 20px;
+  width: calc(33.33% - 20px);
+}
+
+@media (max-width: 768px) {
+  .university-card {
+      width: calc(50% - 20px);
+  }
+}
+
+@media (max-width: 480px) {
+  .university-card {
+      width: 100%;
+  }
+}
+
+footer {
+  background-color: var(--dark-color) !important;
+}
+
+footer a {
+  color: var(--light-color);
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: white;
+}
+
+
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 20px;
+}
+
+.grid-item {
+  background-color: #f4f4f4;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.grid-item.feature {
+  transition: transform 0.3s ease;
+}
+
+.grid-item.feature:hover {
+  transform: translateY(-10px);
+}
+
+.feature h2 {
+  margin-top: 0;
+}
+
+.feature ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.feature li {
+  margin-bottom: 10px;
+}
+
+.feature li::before {
+  content: "\2022";
+  color: #3498db;
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .grid-container {
+      grid-template-columns: repeat(1, 1fr);
+  }
+}

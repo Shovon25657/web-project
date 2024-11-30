@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search - UniPass</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="logo.png" alt="UniPass Logo" height="40">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mainNavbar">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="universities.html">Universities</a></li>
+                    <li class="nav-item"><a class="nav-link" href="search.html">Search</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Search Section -->
+    <section id="search" class="container py-5">
+        <h2 class="text-center mb-4">University Search</h2>
+        <form id="searchForm" class="mb-4">
+            <div class="mb-3">
+                <label>University Type:</label>
+                <select class="form-control" id="universityType">
+                    <option>Local</option>
+                    <option>International</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label>Preferred Location/Country:</label>
+                <input type="text" class="form-control" id="location" required>
+            </div>
+            <div class="mb-3">
+                <label>Program Type:</label>
+                <select class="form-control" id="programType">
+                    <option>Bachelors</option>
+                    <option>Masters</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label>GPA/CGPA:</label>
+                <input type="text" class="form-control" id="gpa" required>
+            </div>
+            <div class="mb-3" id="additionalFields"></div>
+            <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+        <div id="searchResults"></div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <p>&copy; 2023 UniPass</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const universityTypeSelect = document.getElementById('universityType');
+            const additionalFields = document.getElementById('additionalFields');
+
+            universityTypeSelect.addEventListener('change', function() {
+                additionalFields.innerHTML = ''; // Clear existing fields
+                if (this.value === 'Local') {
+                    additionalFields.innerHTML = `
+                        <div class="mb-3">
+                            <label>University Type (Private/Public):</label>
+                            <select class="form-control" id="universityCategory">
+                                <option>Private</option>
+                                <option>Public</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label>Tuition Budget Range:</label>
+                            <input type="text" class="form-control" id="tuitionBudget">
+                        </div>
+                        <div class="mb-3">
+                            <label>Preferred Teaching Language:</label>
+                            <input type="text" class="form-control" id="teachingLanguage">
+                        </div>
+                        <div class="mb-3">
+                            <label>Evening/Weekend Classes:</label>
+                            <select class="form-control" id="eveningClasses">
+                                <option>Yes</option>
+                                <option>No</option>
+                            </select>
+                        </div>
+                    `;
+                } else if (this.value === 'International') {
+                    additionalFields.innerHTML = `
+                        <div class="mb-3">
+                            <label>Desired Course Name:</label>
+                            <input type="text" class="form-control" id="courseName">
+                        </div>
+                        <div class="mb-3">
+                            <label>Language Proficiency Scores:</label>
+                            <input type="text" class="form-control" id="languageScores">
+                        </div>
+                        <div class="mb-3">
+                            <label>Budget Preferences:</label>
+                            <input type="text" class="form-control" id="budgetPreferences">
+                        </div>
+                        <div class="mb-3">
+                            <label>Scholarship Eligibility:</label>
+                            <select class="form-control" id="scholarshipEligibility">
+                                <option>Yes</option>
+                                <option>No</option>
+                            </select>
+                        </div>
+                    `;
+                }
+            });
+
+            // Initial trigger to load fields
+            universityTypeSelect.dispatchEvent(new Event('change'));
+
+            // Search form submission handler
+            const searchForm = document.getElementById('searchForm');
+            searchForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const searchResults = document.getElementById('searchResults');
+                searchResults.innerHTML = 'Search functionality is coming soon!';
+            });
+        });
+    </script>
+</body>
+</html>
