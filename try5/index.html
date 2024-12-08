@@ -6,6 +6,8 @@
     <title>UniPass - Home</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
 </head>
 <body>
     <!-- Navigation -->
@@ -26,119 +28,77 @@
                     <li class="nav-item"><a class="nav-link " href="about.html">About</a></li>
                 </ul>
                 <div class="nav-auth-buttons">
-                    <button class="btn btn-outline-primary me-2" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
-                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#signupModal">Sign Up</button>
+                <!-- Link to Login page -->
+                <a href="login.html" class="btn btn-outline-primary me-2">Login</a>
+                <!-- Link to Signup page -->
+                <a href="signup.html" class="btn btn-primary">Sign Up</a>
                 </div>
             </div>
         </div>
     </nav>
 
-    <!-- Home Section -->
-    <section id="home" class="container-fluid text-center py-5">
-        <div class="container">
-            <h1 class="display-4">Welcome to UniPass</h1>
-            <p class="lead">Your Ultimate University Discovery and Networking Platform</p>
-            <div class="grid-container">
-                <div class="grid-item feature">
-                    <h2>Search Functionality</h2>
-                    <p>Find your perfect university match through our detailed multi-step search process.</p>
-                    <ul>
-                        <li>Filter by location, program type, and more</li>
-                        <li>Compare universities side-by-side</li>
-                        <li>Get personalized recommendations</li>
-                    </ul>
-                </div>
-                <div class="grid-item feature">
-                    <h2>Student Connection Feature</h2>
-                    <p>Connect with peers at similar academic stages and collaborate on various aspects of university life.</p>
-                    <ul>
-                        <li>Looking for a university: Collaborate with others exploring options</li>
-                        <li>Selected a university: Connect with those admitted to the same institution</li>
-                        <li>Choosing programs or courses: Share insights and recommendations</li>
-                        <li>Preparing for admission: Exchange tips on documentation, tests, and deadlines</li>
-                        <li>Planning travel or accommodation: Discuss visa applications, housing, and transport</li>
-                        <li>Currently studying: Receive guidance and mentorship from peers already enrolled</li>
-                    </ul>
-                </div>
-                <div class="grid-item feature">
-                    <h2>University Listing Feature</h2>
-                    <p>Universities can apply to be listed on our platform, providing credentials and details for verification.</p>
-                    <ul>
-                        <li>Admin-managed dashboard for verification</li>
-                        <li>Ensure only credible institutions are added</li>
-                    </ul>
+<!-- Hero Section -->
+<header class="hero-section text-center text-white py-5" style="background: url('hero-bg.jpg') no-repeat center center; background-size: cover;">
+    <div class="container">
+        <h1 class="display-3 animate__animated animate__fadeInDown">Welcome to UniPass</h1>
+        <p class="lead animate__animated animate__fadeInUp">Your Ultimate University Discovery and Networking Platform</p>
+        <a href="search.html" class="btn btn-primary btn-lg mt-3 animate__animated animate__fadeInUp">Start Your Search</a>
+    </div>
+</header>
+
+<!-- Features Section -->
+<section class="features-section py-5">
+    <div class="container text-center">
+        <h2 class="mb-4">Explore Our Features</h2>
+        <div class="row g-4">
+            <div class="col-lg-4 col-md-6">
+                <div class="card h-100 shadow-sm border-0 animate__animated animate__zoomIn">
+                    <div class="card-body">
+                        <div class="icon mb-3">
+                            <img src="search-icon.png" alt="Search Icon" height="60">
+                        </div>
+                        <h5 class="card-title">Search Functionality</h5>
+                        <p class="card-text">Find your perfect university match through advanced filters and personalized recommendations.</p>
+                    </div>
                 </div>
             </div>
-            <div class="text-center">
-                <a href="search.html" class="btn btn-primary btn-lg">Start Your Search</a>
+            <div class="col-lg-4 col-md-6">
+                <div class="card h-100 shadow-sm border-0 animate__animated animate__zoomIn animate__delay-1s">
+                    <div class="card-body">
+                        <div class="icon mb-3">
+                            <img src="connect-icon.png" alt="Connect Icon" height="60">
+                        </div>
+                        <h5 class="card-title">Student Connections</h5>
+                        <p class="card-text">Collaborate with peers and mentors, exchange insights, and plan your university journey.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="card h-100 shadow-sm border-0 animate__animated animate__zoomIn animate__delay-2s">
+                    <div class="card-body">
+                        <div class="icon mb-3">
+                            <img src="university-icon.png" alt="University Icon" height="60">
+                        </div>
+                        <h5 class="card-title">University Listings</h5>
+                        <p class="card-text">Explore verified universities, compare them, and apply with confidence.</p>
+                    </div>
+                </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
+
+<!-- Ready to Start Your Journey Section -->
+<section id="call-to-action" style="background: linear-gradient(135deg, #1e3c72, #2a5298); color: white;">
+    <div class="container text-center py-5">
+        <h2 class="animate__animated animate__fadeInUp">Ready to Start Your Journey?</h2>
+        <p class="animate__animated animate__fadeInUp">Let UniPass guide you toward achieving your educational goals.</p>
+        <a href="login.html" class="btn btn-primary btn-lg animate__animated animate__pulse animate__infinite">Get Started</a>
+    </div>
+</section>
    
-
-    <!-- Login Modal -->
-    <div class="modal fade" id="loginModal" tabindex="-1">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Login</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body">
-                    <form id="loginForm">
-                        <div class="mb-3">
-                            <label>Email</label>
-                            <input type="email" class="form-control" required>
-                        </div>
-                        <div class="mb-3">
-                            <label>Password</label>
-                            <input type="password" class="form-control" required>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Login</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Signup Modal -->
-    <div class="modal fade" id="signupModal" tabindex="-1">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Sign Up</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body">
-                    <form id="signupForm">
-                        <div class="mb-3">
-                            <label>Full Name</label>
-                            <input type="text" class="form-control" required>
-                        </div>
-                        <div class="mb-3">
-                            <label>Email</label>
-                            <input type="email" class="form-control" required>
-                        </div>
-                        <div class="mb-3">
-                            <label>Password</label>
-                            <input type="password" class="form-control" required>
-                        </div>
-                        <div class="mb-3">
-                            <label>Academic Level</label>
-                            <select class="form-control">
-                                <option>High School</option>
-                                <option>Undergraduate</option>
-                                <option>Graduate</option>
-                            </select>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Create Account</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
+   
     <!-- Footer -->
     <footer class="bg-dark text-white py-4">
         <div class="container">

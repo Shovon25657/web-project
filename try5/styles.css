@@ -128,3 +128,66 @@ footer a:hover {
       grid-template-columns: repeat(1, 1fr);
   }
 }
+
+
+
+
+/* login/signup styles */
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f9f9f9;
+  margin: 0;
+}
+
+.auth-container {
+  background: linear-gradient(135deg, #6c63ff, #b18aff);
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 400px;
+  background: #fff;
+}
+
+.auth-card h1 {
+  font-size: 2rem;
+  color: #6c63ff;
+}
+
+.auth-card .btn-primary {
+  background-color: #6c63ff;
+  border: none;
+  transition: background-color 0.3s;
+}
+
+.auth-card .btn-primary:hover {
+  background-color: #5849cc;
+}
+
+.auth-card a {
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.auth-card a:hover {
+  text-decoration: underline;
+}
+
+
+.auth-card .btn-secondary {
+  background-color: #f5f5f5;
+  color: #333;
+  border: 1px solid #ccc;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.auth-card .btn-secondary:hover {
+  background-color: #e0e0e0;
+  color: #000;
+}
+
+.auth-card p {
+  font-size: 0.9rem;
+  color: #666;
+}
