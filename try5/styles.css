@@ -6,16 +6,25 @@
 }
 
 body {
+
+  height: 100%;
   background-image: linear-gradient(to bottom, #3498db, #2ecc71);
   background-size: cover; /* Ensures the background image/gradient scales appropriately */
   background-attachment: fixed; /* Keeps the background in place while scrolling */
-  margin: 0;
-  font-family: Arial, sans-serif;
+  margin-top: 0;
   padding-top: 70px;
+
+  font-family: Arial, sans-serif;
+  justify-content: space-between;
+  display: flex;
+  flex-direction: column;
   min-height: 100vh; /* Ensures the height adjusts dynamically */
 }
 
 .navbar {
+
+  position: absolute;
+  height: 75px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
@@ -24,11 +33,20 @@ body {
   color: var(--primary-color) !important;
 }
 
+section.containerpy-5{
+
+  padding-top: 75px;
+  width:100%;
+
+}
+
 section {
-  background-color: white;
   padding: 50px 0;
   margin-bottom: 20px;
   border-radius: 10px;
+  justify-content: space-around;
+  width: 100%; 
+
 }
 
 .card {
@@ -63,6 +81,9 @@ section {
       width: 100%;
   }
 }
+
+
+
 
 footer {
   background-color: var(--dark-color) !important;
@@ -134,11 +155,11 @@ footer a:hover {
 
 /* login/signup styles */
 
-body {
+/* body {
   font-family: 'Arial', sans-serif;
   background-color: #f9f9f9;
   margin: 0;
-}
+} */
 
 .auth-container {
   background: linear-gradient(135deg, #6c63ff, #b18aff);
@@ -190,4 +211,86 @@ body {
 .auth-card p {
   font-size: 0.9rem;
   color: #666;
+}
+
+
+
+
+/* Our features styles */
+
+#features {
+  padding: 50px 0;
+}
+
+.feature-list {
+  display: block;  /* Stack features one below the other */
+  gap: 30px;
+}
+
+.feature-item {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 30px;  /* Ensure spacing between features */
+}
+
+.feature-image {
+  position: relative;
+  width: 100%;
+  height: 500px;  /* Adjust height for large images */
+  overflow: hidden;
+}
+
+.feature-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;  /* Ensure the image covers the container */
+  border-radius: 10px;
+  transition: transform 0.3s ease;  /* Zoom effect on hover */
+}
+
+.feature-info {
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  transform: translateY(-50%);
+  color: #fff; /* White text color */
+  background: rgba(0, 0, 0, 0.4);  /* Semi-transparent background */
+  padding: 20px;
+  border-radius: 10px;
+  width: 40%;
+  opacity: 0;
+  transition: opacity 0.3s ease;  /* Fade-in effect for feature text */
+}
+
+.feature-item:hover .feature-info {
+  opacity: 1;  /* Show text when hovering over the image */
+}
+
+.feature-info h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.feature-info ul {
+  list-style: none;
+  padding: 0;
+}
+
+.feature-info ul li {
+  margin-bottom: 10px;
+}
+
+.feature-item:hover .feature-image img {
+  transform: scale(1.05);  /* Zoom effect on hover */
+}
+
+@media (max-width: 768px) {
+  .feature-info {
+      width: 90%;  /* Ensure feature text takes more width on mobile */
+  }
+
+  .feature-image {
+      height: 300px;  /* Adjust image height on mobile */
+  }
 }
