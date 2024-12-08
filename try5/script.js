@@ -3,48 +3,65 @@ let allUniversities = [];
 
 // Function to fetch universities from CSV URL
 async function fetchUniversities() {
-    const url = "https://raw.githubusercontent.com/endSly/world-universities-csv/master/world-universities.csv";
-    try {
-        const response = await fetch(url);
-        const csvText = await response.text();
-        const universities = parseCSV(csvText);
-        allUniversities = universities; // Store the universities globally
+  const url = "https://raw.githubusercontent.com/endSly/world-universities-csv/master/world-universities.csv";
+  try {
+      const response = await fetch(url);
+      const csvText = await response.text();
+      const universities = parseCSV(csvText);
+      allUniversities = universities;
 
-        displayUniversities(universities); // Initial display
-    } catch (error) {
-        console.error('Error fetching universities:', error);
-    }
+      displayUniversities(universities);
+  } catch (error) {
+      console.error('Error fetching universities:', error);
+  }
 }
 
 // Function to parse the CSV data into an array of objects
 function parseCSV(csvText) {
-    const rows = csvText.split('\n').slice(1); // Skip header row
-    return rows.map(row => {
-        const [countryCode, universityName, website] = row.split(',');
-        return { countryCode, universityName, website };
-    }).filter(university => university.countryCode && university.universityName);
+  const rows = csvText.split('\n').slice(1);
+  return rows.map(row => {
+      const [countryCode, universityName, website] = row.split(',');
+      return { countryCode, universityName, website };
+  }).filter(university => university.countryCode && university.universityName);
 }
 
 // Function to display universities on the page
 function displayUniversities(universities) {
-    const universityList = document.getElementById('universityList');
-    universityList.innerHTML = ''; // Clear existing list
+  const universityList = document.getElementById('universityList');
+  universityList.innerHTML = '';
 
-    universities.forEach(university => {
-        const universityCard = document.createElement('div');
-        universityCard.classList.add('col-md-4');
-        universityCard.innerHTML = `
-            <div class="card mb-3">
-                <div class="card-body">
-                    <h5 class="card-title">${university.universityName}</h5>
-                    <p class="card-text">Country Code: ${university.countryCode}</p>
-                    <a href="${university.website}" class="btn btn-primary" target="_blank">Visit Website</a>
-                </div>
-            </div>
-        `;
-        universityList.appendChild(universityCard);
-    });
+  universities.forEach(university => {
+      const universityCard = document.createElement('div');
+      universityCard.classList.add('col-md-4');
+      universityCard.innerHTML = `
+          <div class="card mb-3">
+              <div class="card-body">
+                  <h5 class="card-title">${university.universityName}</h5>
+                  <p class="card-text">Country Code: ${university.countryCode}</p>
+                  <a href="${university.website}" class="btn btn-primary" target="_blank">Visit Website</a>
+              </div>
+          </div>`;
+      universityList.appendChild(universityCard);
+  });
 }
+
+
+// Highlight the active navigation link
+function setActiveLink() {
+  const navLinks = document.querySelectorAll('.nav-link');
+  const currentPage = window.location.pathname.split('/').pop();
+
+  navLinks.forEach(link => {
+      const linkPage = link.getAttribute('href').split('/').pop();
+      if (linkPage === currentPage) {
+          link.classList.add('active');
+      } else {
+          link.classList.remove('active');
+      }
+  });
+}
+
+
 
 // Function to filter universities based on search input
 function filterUniversities() {
@@ -60,18 +77,15 @@ function filterUniversities() {
     displayUniversities(filteredUniversities); // Display filtered results
 }
 
-// Event Listeners for search input fields
+// Event listeners for search inputs
 document.getElementById('countrySearch').addEventListener('input', filterUniversities);
 document.getElementById('universitySearch').addEventListener('input', filterUniversities);
 
-// Event Listener for Document Load
+// Initialize the page
 document.addEventListener('DOMContentLoaded', () => {
-    // Fetch universities when the universities page is loaded
-    if (document.getElementById('universityList')) {
-        fetchUniversities();
-    }
+    fetchUniversities();
+    setActiveLink();
 });
-
 
 
 
@@ -172,6 +186,20 @@ function setupFormHandlers() {
       }
     });
   }
+}
+
+// Nav active link marking
+function setActiveLink() {
+  const navLinks = document.querySelectorAll('.nav-link');
+  const currentPage = window.location.pathname;
+
+  navLinks.forEach(link => {
+      if (link.getAttribute('href') === currentPage) {
+          link.classList.add('active');
+      } else {
+          link.classList.remove('active');
+      }
+  });
 }
 
 // Smooth scrolling for navigation

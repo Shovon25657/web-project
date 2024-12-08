@@ -7,14 +7,21 @@
 
 body {
   background-image: linear-gradient(to bottom, #3498db, #2ecc71);
-  height: 100vh;
+  background-size: cover; /* Ensures the background image/gradient scales appropriately */
+  background-attachment: fixed; /* Keeps the background in place while scrolling */
   margin: 0;
   font-family: Arial, sans-serif;
   padding-top: 70px;
+  min-height: 100vh; /* Ensures the height adjusts dynamically */
 }
 
 .navbar {
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.nav-link.active {
+  font-weight: bold;
+  color: var(--primary-color) !important;
 }
 
 section {
@@ -23,7 +30,6 @@ section {
   margin-bottom: 20px;
   border-radius: 10px;
 }
-
 
 .card {
   transition: all 0.3s ease;
@@ -70,8 +76,6 @@ footer a {
 footer a:hover {
   color: white;
 }
-
-
 
 .grid-container {
   display: grid;
